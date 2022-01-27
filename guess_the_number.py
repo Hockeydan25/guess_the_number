@@ -17,8 +17,12 @@ def generate_secret(low, high):
 
 def get_guess():
     """ get user's guess, as an integer number """
-    return int(input('Guess the secret number? '))
+    while True:
+        try:
 
+            return int(input('Guess the secret number? '))
+        except:
+            print('that is not a number')
 
 def check_guess(guess, secret):
     """ compare guess and secret, return string describing result of comparison """
@@ -34,7 +38,6 @@ def main():
 
     (low, high) = configure_range()
     secret = generate_secret(low, high)
-
     while True:
         guess = get_guess()
         result = check_guess(guess, secret)
