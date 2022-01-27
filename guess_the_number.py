@@ -1,3 +1,4 @@
+from distutils.log import error
 import random
 
 correct = 'you guessed correctly!'
@@ -12,13 +13,18 @@ def configure_range():
 
 def generate_secret(low, high):
     """ Generate a secret number for the user to guess """
+
     return random.randint(low, high)
 
 
 def get_guess():
     """ get user's guess, as an integer number """
-    return int(input('Guess the secret number? '))
+    while True:
+        try:
 
+            return int(input('Guess the secret number? '))
+        except:
+            print('that is not a number')
 
 def check_guess(guess, secret):
     """ compare guess and secret, return string describing result of comparison """
