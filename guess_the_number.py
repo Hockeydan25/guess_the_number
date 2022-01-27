@@ -23,7 +23,7 @@ def get_guess():
             return int(input('Guess the secret number? '))
         except:
             print('that is not a number')
-
+        
 def check_guess(guess, secret):
     """ compare guess and secret, return string describing result of comparison """
     if guess == secret:
@@ -35,17 +35,17 @@ def check_guess(guess, secret):
 
 
 def main():
-
+    numOfGuess = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
     while True:
         guess = get_guess()
         result = check_guess(guess, secret)
         print(result)
-
+        numOfGuess +=1
+        print(f"{numOfGuess} guesses")
         if result == correct:
             break
-
     print('Thanks for playing the game!')
 
 
